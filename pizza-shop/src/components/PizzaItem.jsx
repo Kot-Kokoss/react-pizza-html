@@ -7,19 +7,34 @@ function PizzaItem({ id, imageUrl, title, sizes, types, price, category, rating 
 
   const typeNames = ['тонкое', 'традиционное'];
 
+  const onClickActiveType = (activeIndex) => {
+    setActiveType(activeIndex);
+  };
+  const onClickActiveSize = (activeIndex) => {
+    setActiveSize(sizes[activeIndex]);
+  };
+
   return (
     <div key={id} className="pizza-block">
       <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
       <h4 className="pizza-block__title">{title}</h4>
       <div className="pizza-block__selector">
         <ul>
-          {types.map((type) => (
-            <li className={type === activeType ? 'active' : ''}>{typeNames[type]}</li>
+          {types.map((typeIndex, i) => (
+            <li
+              className={typeIndex === activeType ? 'active' : ''}
+              onClick={() => onClickActiveType(i)}>
+              {typeNames[typeIndex]}
+            </li>
           ))}
         </ul>
         <ul>
-          {sizes.map((size) => (
-            <li className={size === activeSize ? 'active' : ''}>{size} см.</li>
+          {sizes.map((sizeIndex, i) => (
+            <li
+              className={sizeIndex === activeSize ? 'active' : ''}
+              onClick={() => onClickActiveSize(i)}>
+              {sizeIndex} см.
+            </li>
           ))}
         </ul>
       </div>
