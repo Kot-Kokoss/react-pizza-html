@@ -2,17 +2,9 @@ import React, { useState } from 'react';
 
 function PizzaItem({ id, imageUrl, title, sizes, types, price, category, rating }) {
   const [count, setCount] = useState(0);
-  const [activeType, setActiveType] = useState(types[0]);
-  const [activeSize, setActiveSize] = useState(sizes[0]);
-
+  const [activeType, setActiveType] = useState(0);
+  const [activeSize, setActiveSize] = useState(0);
   const typeNames = ['тонкое', 'традиционное'];
-
-  const onClickActiveType = (activeIndex) => {
-    setActiveType(activeIndex);
-  };
-  const onClickActiveSize = (activeIndex) => {
-    setActiveSize(sizes[activeIndex]);
-  };
 
   return (
     <div key={id} className="pizza-block">
@@ -22,8 +14,9 @@ function PizzaItem({ id, imageUrl, title, sizes, types, price, category, rating 
         <ul>
           {types.map((typeIndex, i) => (
             <li
-              className={typeIndex === activeType ? 'active' : ''}
-              onClick={() => onClickActiveType(i)}>
+              key={typeIndex}
+              className={i === activeType ? 'active' : ''}
+              onClick={() => setActiveType(i)}>
               {typeNames[typeIndex]}
             </li>
           ))}
@@ -31,8 +24,9 @@ function PizzaItem({ id, imageUrl, title, sizes, types, price, category, rating 
         <ul>
           {sizes.map((sizeIndex, i) => (
             <li
-              className={sizeIndex === activeSize ? 'active' : ''}
-              onClick={() => onClickActiveSize(i)}>
+              key={sizeIndex}
+              className={i === activeSize ? 'active' : ''}
+              onClick={() => setActiveSize(i)}>
               {sizeIndex} см.
             </li>
           ))}

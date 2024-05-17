@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 
 function App() {
   const [items, setItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch('https://6637bb3c288fedf693812f99.mockapi.io/pizza-react')
@@ -15,6 +16,7 @@ function App() {
       })
       .then((json) => {
         setItems(json);
+        setIsLoading(false);
       })
       .catch((err) => {
         console.warn(err);
@@ -31,7 +33,7 @@ function App() {
             <Categories />
             <Sort />
           </div>
-          <ItemsList list={items} />
+          <ItemsList isLoading={isLoading} list={items} />
         </div>
       </div>
     </div>
