@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function PizzaItem({ id, imageUrl, title, sizes, types, price, category, rating }) {
+function PizzaItem({ id, imageUrl, title, sizes, types, price }) {
   const [count, setCount] = useState(0);
   const [activeType, setActiveType] = useState(0);
   const [activeSize, setActiveSize] = useState(0);
