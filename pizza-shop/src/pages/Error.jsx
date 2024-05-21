@@ -4,7 +4,9 @@ import ErrorItem from '../components/ErrorItem';
 const Error = () => {
   return (
     <>
-      <ErrorItem />
+      <div className="content">
+        <ErrorItem />
+      </div>
     </>
   );
 };

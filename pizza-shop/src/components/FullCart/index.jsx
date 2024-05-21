@@ -6,7 +6,7 @@ import CartFooter from '../CartFooter';
 const FullCart = () => {
   return (
     <>
-      <div class="container--cart">
+      <div class="container container--cart">
         <div class="cart">
           <CartHeader />
           <CartItemsList />

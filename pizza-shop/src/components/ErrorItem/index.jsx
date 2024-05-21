@@ -8,8 +8,8 @@ const Error = () => {
       <div className={styles.block}>
         <h1 className={styles.block__title}>Ничего не найдено 😕</h1>
         <p className={styles.block__info}>Данная страница не существует.</p>
-        <Link to="/">
-          <button className={styles.button_black}>Вернуться на главную</button>
+        <Link to="/" className={styles.button_black}>
+          Вернуться на главную{' '}
         </Link>
       </div>
     </>

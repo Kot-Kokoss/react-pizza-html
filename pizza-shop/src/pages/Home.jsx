@@ -25,11 +25,13 @@ const Home = () => {
 
   return (
     <>
-      <div className="content__top">
-        <Categories />
-        <Sort />
+      <div className="container">
+        <div className="content__top">
+          <Categories />
+          <Sort />
+        </div>
+        <ItemsList isLoading={isLoading} list={items} />
       </div>
-      <ItemsList isLoading={isLoading} list={items} />
     </>
   );
 };
