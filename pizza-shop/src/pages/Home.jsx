@@ -21,6 +21,7 @@ const Home = () => {
         console.warn(err);
         alert('Ошибка с подгрузкой данных');
       });
+    window.scrollTo(0, 0);
   }, []);
 
   return (
